@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${configuration.applicationName} + '- ACP'">Flameboard</title>
+
+    <link href="/webjars/bootstrap/3.3.0/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.0/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link href="/webjars/font-awesome/4.2.0/css/font-awesome.min.css"
+          th:href="@{/webjars/font-awesome/4.2.0/css/font-awesome.min.css}" rel="stylesheet">
+    <link th:href="@{/acp/css/application.css}" rel="stylesheet">
+
+    <script src="/webjars/jquery/2.1.1/jquery.min.js" th:src="@{/webjars/jquery/2.1.1/jquery.min.js}"></script>
+    <script src="/webjars/bootstrap/3.3.0/js/bootstrap.min.js"
+            th:src="@{/webjars/bootstrap/3.3.0/js/bootstrap.min.js}"></script>
+</head>
+<body>
+
+<div th:include="acp/html/fragments/header::navigation"></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="container-fluid">
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading" th:text="#{acp.index.stats.board}">Forum Statistik</div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tr>
+                                <td>Foren:</td>
+                                <td>
+                                    <ul>
+                                        <li>x offene</li>
+                                        <li>x geschlossene</li>
+                                        <li>x links</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Themen:</td>
+                                <td>
+                                    <ul>
+                                        <li>x Themen</li>
+                                        <li>x heute</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Benutzer:</td>
+                                <td>
+                                    <ul>
+                                        <li>x Registriete</li>
+                                        <li>x Aktive</li>
+                                        <li>x Registrierungen heute</li>
+                                        <li>x nicht aktivierte</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Attachments:</td>
+                                <td>
+                                    <ul>
+                                        <li>x Attachments</li>
+                                        <li>x Speicherbedarf</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading" th:text="#{acp.index.news}">News</div>
+                    <div class="panel-body">
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert">
+                                <span aria-hidden="true">&times;</span>
+                                <span class="sr-only">Close</span>
+                            </button> Erfolgreicher Task
+                        </div>
+                        <div class="alert alert-info alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert">
+                                <span aria-hidden="true">&times;</span>
+                                <span class="sr-only">Close</span>
+                            </button> Info vom Serveradmin
+                        </div>
+                        <div class="alert alert-warning alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert">
+                                <span aria-hidden="true">&times;</span>
+                                <span class="sr-only">Close</span>
+                            </button> Fehler bei Aktivitäten
+                        </div>
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert">
+                                <span aria-hidden="true">&times;</span>
+                                <span class="sr-only">Close</span>
+                            </button> Sofort um Fehler kümmern
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading" th:text="#{acp.index.stats.api}">Flameboard API Statistik</div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tr>
+                                <td>API Server Status:</td>
+                                <td><span class="label label-success"
+                                          th:text="#{acp.index.api.status.online}">Online</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>API Server URL:</td>
+                                <td><span th:text="${configuration.getApiUrl()}"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Resource Server Status:</td>
+                                <td><span class="label label-success"
+                                          th:text="#{acp.index.resource.status.online}">Online</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Resource Server URL:</td>
+                                <td><span th:text="${configuration.getResourceServerUrl()}"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>(API Status, Dismiss):</td>
+                                <td><span class="label label-danger"
+                                          th:text="#{acp.index.api.status.offline}">Offline</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>(Resource Status, Dismiss):</td>
+                                <td><span class="label label-danger"
+                                          th:text="#{acp.index.resource.status.offline}">Offline</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
